@@ -14,7 +14,7 @@ EOF;
 	die();
 }
 
-$api = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}&url=文件地址（base64编码）";
+$api = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}&url=文件地址";
 
 if (isset($_GET['url'])) {
 	// $url = base64_decode($_GET['url']);
