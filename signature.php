@@ -11,7 +11,7 @@ if (isset($_GET['uid'])) {
 	try {
 		$avatar = imagecreatefromjpeg('http://' . $_SERVER['HTTP_HOST'] . '/ucenter/avatar.php?uid=' . $uid . '&size=middle');
 	}
-	catch {
+	catch (Exception $e) {
 		$avatar = imagecreatefromgif('http://' . $_SERVER['HTTP_HOST'] . '/ucenter/avatar.php?uid=' . $uid . '&size=middle');
 	}
 	$avatar_new = imagecreatetruecolor(83, 83);
