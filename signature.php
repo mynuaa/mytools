@@ -1,5 +1,7 @@
 <?
 
+error_reporting(0);
+
 $db = new mysqli('localhost', 'discuz', '6b1dd49556b53b', 'discuz');
 $db->set_charset('utf8');
 
@@ -46,6 +48,7 @@ if (isset($_GET['uid'])) {
 	imagettftext($bg, 10, 0, 100, 88, $text_color, $font, $customstatus);
 	//
 	header('Content-type: image/png');
+	header('Content-disposition: inline; filename=signature_' . $username . '.png');
 	imagepng($bg);
 	imagedestroy($bg);
 	exit();
