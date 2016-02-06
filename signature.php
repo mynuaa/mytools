@@ -7,9 +7,9 @@ if (isset($_GET['uid'])) {
 	$uid = intval($_GET['uid']);
 	// state为状态位，位1、位2分别表示论坛、商城
 	$state = isset($_GET['state']) ? intval($_GET['state']) : 7;
-	$bg = ImageCreateFromPng('images/bg-blue.png');
-	$avatar = ImageCreateFromGif('http://' . $_SERVER['HTTP_HOST'] . '/ucenter/avatar.php?uid=' . $uid . '&size=middle');
-	$avatar_new = ImageCreate(83, 83);
+	$bg = imagecreatefrompng('images/bg-blue.png');
+	$avatar = imagecreatefromgif('http://' . $_SERVER['HTTP_HOST'] . '/ucenter/avatar.php?uid=' . $uid . '&size=middle');
+	$avatar_new = imagecreatetruecolor(83, 83);
 	imagecopyresampled($avatar_new, $avatar, 0, 0, 0, 0, 83, 83, 120, 120);
 	imagecopy($bg, $avatar_new, 10, 10, 0, 0, 83, 83);
 	// @TODO: 根据state来控制显示信息
@@ -41,7 +41,7 @@ if (isset($_GET['uid'])) {
 	imagettftext($bg, 10, 0, 100, 88, $text_color, $font, $customstatus);
 	//
 	header('Content-type: image/png');
-	ImagePng($bg);
+	imagepng($bg);
 	imagedestroy($bg);
 	exit();
 }
