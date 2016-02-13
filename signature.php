@@ -9,7 +9,9 @@ if (isset($_GET['uid'])) {
 	$uid = intval($_GET['uid']);
 	// state为状态位，位1、位2分别表示论坛、商城
 	$state = isset($_GET['state']) ? intval($_GET['state']) : 7;
-	$bg = imagecreatefrompng('images/bg-blue.png');
+	$bgs = ['blue', 'green', 'red', 'yellow', 'purple'];
+	if (!isset($_GET['bg']) || !isset($bgs[$_GET['bg']])) $bg = imagecreatefrompng('images/bg-blue.png');
+	else $bg = imagecreatefrompng('images/bg-' . $bgs[$_GET['bg']] . '.png');
 	try {
 		$avatar = imagecreatefromjpeg('http://' . $_SERVER['HTTP_HOST'] . '/ucenter/avatar.php?uid=' . $uid . '&size=middle');
 	}
