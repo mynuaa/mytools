@@ -28,7 +28,6 @@ $m_body = $content['m_body'];
 $mail = new PHPMailer();
 $mail->IsSMTP();
 $mail->Host = "smtp.nuaa.edu.cn";
-$mail->SMTPSecure = 'ssl';
 $mail->SMTPAuth = true;
 $mail->Username = "zfj";
 $mail->Password = "zfjmail.2014";
