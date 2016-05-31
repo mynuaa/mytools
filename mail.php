@@ -39,6 +39,7 @@ $mail->AddAddress($m_address, $m_showname);
 $mail->IsHTML(true);
 $mail->Subject = $m_subject;
 $mail->Body = $m_body;
+$mail->SMTPDebug = 2;
 
 if (!$mail->Send()) echo $mail->ErrorInfo;
 else echo "success";
