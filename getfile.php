@@ -17,9 +17,13 @@ EOF;
 $api = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}&url=文件地址";
 
 if (isset($_GET['url'])) {
-	// $url = base64_decode($_GET['url']);
 	$url = $_GET['url'];
-	header('Content-type: image/jpg');
+	preg_match('/^(http|https|ftp)/', $url, $matches);
+	if (!isset($matches[0])) die();
+	$url = preg_replace('/^https*:\/\//', '', $url);
+	// 禁止访问本地文件
+	if (preg_match('/^(localhost|127\.0\.0\.1|::1|192\.168\.121\.21)/', $url)) die();
+	$url = $matches[1] . '://' . $url;
 	echo file_get_contents($url);
 }
 else {
