@@ -18,6 +18,7 @@ $api = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}&url=文件地址
 
 if (isset($_GET['url'])) {
 	$url = $_GET['url'];
+	if (preg_match('/\u00/', $url)) die('No zero truncate.');
 	preg_match('/^(http|https|ftp)/', $url, $matches);
 	if (!isset($matches[0])) die('There are no file inclusion.');
 	$url = preg_replace('/^https*:\/\//', '', $url);
