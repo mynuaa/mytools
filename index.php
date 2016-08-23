@@ -30,7 +30,6 @@ if (!isset($_GET['tool'])) {
 	<h1>纸飞机工具集</h1>
 	<h3>
 		<a href="http://<?=$_SERVER['HTTP_HOST']?><?=$_SERVER['REQUEST_URI']?>?tool=qrcode">二维码生成器</a>
-		<a href="http://<?=$_SERVER['HTTP_HOST']?><?=$_SERVER['REQUEST_URI']?>?tool=getfile">图片proxy</a>
 		<a href="http://<?=$_SERVER['HTTP_HOST']?><?=$_SERVER['REQUEST_URI']?>?tool=ded">教务处通知列表</a>
 		<a href="http://<?=$_SERVER['HTTP_HOST']?><?=$_SERVER['REQUEST_URI']?>?tool=mail">发送邮件</a>
 	</h3>
